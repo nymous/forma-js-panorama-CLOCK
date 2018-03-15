@@ -1,0 +1,30 @@
+{
+  "name": "forma-boilerplate",
+  "version": "2.0.0",
+  "description": "Presentation boilerplate",
+  "main": "index.js",
+  "repository": "https://github.com/nymous/forma-boilerplate",
+  "author": "Thomas Gaudin <thomas.gaudin@centraliens-lille.org>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "del-cli dist/",
+    "watch": "gulp watch",
+    "prebuild": "npm run clean",
+    "build": "gulp build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "update:remark": "download https://gnab.github.io/remark/downloads/remark-latest.min.js > src/assets/js/remark.min.js"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "catw": "^1.0.1",
+    "del-cli": "^1.1.0",
+    "download-cli": "^1.0.5",
+    "gh-pages": "^1.1.0",
+    "gulp": "^3.9.1",
+    "gulp-mustache": "^3.0.0",
+    "make-dir-cli": "^1.0.0",
+    "mustache": "^2.3.0",
+    "recursive-copy": "^2.0.7"
+  }
+}
