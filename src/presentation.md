@@ -21,8 +21,8 @@ layout: false
 - Fonctionnement des nouvelles versions du langage (proposals, stages...)
 - Fonctionnalités swaggy
   - ES6 (2015)
-  - ES7
-  - ES8
+  - ES2016
+  - ES2017
   - Encore en proposals
 - Tooling
   - Babel
@@ -70,7 +70,7 @@ template: inverse
 - https://github.com/yarnpkg/yarn
 - https://github.com/TryGhost/Ghost
 - https://github.com/ariya/phantomjs
-- https://github.com/sindresorhus/awesome-nodejs et https://github.com/sindresorhus/awesome en général
+- https://github.com/sindresorhus/awesome-nodejs, https://github.com/sorrycc/awesome-javascript et https://github.com/sindresorhus/awesome en général
 - https://github.com/wearehive/project-guidelines
 - https://github.com/i0natan/nodebestpractices
 - https://github.com/verekia/js-stack-from-scratch
