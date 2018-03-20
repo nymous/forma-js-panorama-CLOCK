@@ -90,3 +90,7 @@ code {
 img {
   width: 100%;
 }
+
+.javascript-img img {
+  width: 25%;
+}
