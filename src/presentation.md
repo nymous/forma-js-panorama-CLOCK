@@ -176,6 +176,8 @@ Tout ce processus est public !
 La spécification : https://github.com/tc39/ecma262 (accrochez vous !)
 
 Les propositions : https://github.com/tc39/proposals
+
+.ecm262-img[![Spec ECMA262](./assets/img/ecma262.png)]
 ]
 
 ---
@@ -189,11 +191,532 @@ template: inverse
 ## ES6
 ]
 
+.right-column[
+- `let` et `const`
+
+.code-multi-columns[
+```js
+// ES5
+var PI = 3.14;
+var quickMaths = false;
+
+if (PI > 3.0) {
+  var quickMaths = true;
+  console.log(quickMaths); // true
+}
+
+console.log(quickMaths); // true
+```
+```js
+// ES6
+const PI = 3.14;
+let quickMaths = false;
+
+if (PI > 3.0) {
+  let quickMaths = true;
+  console.log(quickMaths); // true
+}
+
+console.log(quickMaths); // false
+```
+]
+]
+
+---
+count: false
+
+.left-column[
+## ES6
+]
+
+.right-column[
+- `let` et `const`
+
+```js
+// ES5
+for (var i = 0; i < 5; i++) {
+  var btn = document.createElement('button');
+  btn.appendChild(document.createTextNode('Button ' + i));
+  btn.addEventListener('click', () => console.log(i));
+  document.body.appendChild(btn);
+}
+```
+```js
+// ES6
+for (let i = 0; i < 5; i++) {
+  var btn = document.createElement('button');
+  btn.appendChild(document.createTextNode('Button ' + i));
+  btn.addEventListener('click', () => console.log(i));
+  document.body.appendChild(btn);
+}
+```
+]
+
+---
+count: false
+
+.left-column[
+## ES6
+]
+
+.right-column[
+- `let` et `const`
+- Les *arrow functions*
+
+➡ Écriture raccourcie  
+➡ Return implicite
+
+.code-multi-columns[
+```js
+// ES5
+const array = [1, 2, 3, 4, 5];
+const squares = array.map(function (v) {
+  return v * v;
+});
+```
+```js
+// ES6
+const array = [1, 2, 3, 4, 5]
+let squares = array.map(v => {
+  return v * v
+})
+
+// Return implicite
+squares = array.map(v => v * v)
+```
+]
+]
+
+---
+count: false
+
+.left-column[
+## ES6
+]
+
+.right-column[
+- `let` et `const`
+- Les *arrow functions*
+
+➡ `this` récupéré du contexte parent
+
+```js
+// ES5
+function Timer () {
+  this.seconds = 0;
+  setInterval(function() { this.seconds++}, 1000);
+}
+var timer = new Timer();
+setTimeout(function() { console.log(timer.seconds) }, 3100); // 0
+
+// Version corrigée
+function Timer () {
+  this.seconds = 0;
+  var that = this;
+  setInterval(function() { that.seconds++}, 1000);
+}
+```
+```js
+// ES6
+function Timer () {
+  this.seconds = 0
+  setInterval(() => this.seconds++, 1000)
+}
+let timer = new Timer()
+setTimeout(function() { console.log(timer.seconds) }, 3100) // 3
+```
+]
+
+---
+count: false
+
+.left-column[
+## ES6
+]
+
+.right-column[
+- `let` et `const`
+- Les *arrow functions*
+- Les paramètres par défaut
+
+.code-multi-columns[
+```js
+// ES5
+function f (x, y, z) {
+  if (y === undefined)
+    y = 7;
+  if (z === undefined)
+    z = 42;
+  return x + y + z;
+}
+f(1); // 50
+```
+```js
+// ES6
+function f (x, y = 7, z = 42) {
+  return x + y + z
+}
+f(1) // 50
+```
+]
+]
+
+---
+count: false
+
+.left-column[
+## ES6
+]
+
+.right-column[
+- `let` et `const`
+- Les *arrow functions*
+- Les paramètres par défaut
+- Les *rest parameters* et le *spread operator*
+
+```js
+// ES5
+// Rest parameters
+function join(glue) {
+  var words = Array.prototype.slice.call(arguments, 1);
+  return words.join(glue);
+}
+join(' ', 'Bonjour', 'Thomas'); // Bonjour Thomas
+
+// Spread operator
+var params = ['hello', true, 7];
+var other = [1, 2].concat(params); // [1, 2, 'hello', true, 7]
+```
+```js
+// ES6
+// Rest parameters
+function join(glue, ...words) {
+  return words.join(glue);
+}
+join(' ', 'Bonjour', 'Thomas'); // Bonjour Thomas
+
+// Spread operator
+var params = ['hello', true, 7]
+var other = [1, 2, ...params] // [1, 2, 'hello', true, 7]
+```
+]
+
+---
+count: false
+
+.left-column[
+## ES6
+]
+
+.right-column[
+- `let` et `const`
+- Les *arrow functions*
+- Les paramètres par défaut
+- Les *rest parameters* et le *spread operator*
+- Les *template literals*
+
+```js
+// ES5
+var customer = { name: "Foo" };
+var card = { amount: 7, product: "Bar", unitprice: 42 };
+var message = "Hello " + customer.name + ",\n" +
+"want to buy " + card.amount + " " + card.product + " for\n" +
+"a total of " + (card.amount * card.unitprice) + " bucks?";
+```
+```js
+// ES6
+const customer = { name: 'Foo' }
+const card = { amount: 7, product: 'Bar', unitprice: 42 }
+const message = `Hello ${customer.name},
+want to buy ${card.amount} ${card.product} for
+a total of ${card.amount * card.unitprice} bucks?`
+```
+]
+
+---
+count: false
+
+.left-column[
+## ES6
+]
+
+.right-column[
+- `let` et `const`
+- Les *arrow functions*
+- Les paramètres par défaut
+- Les *rest parameters* et le *spread operator*
+- Les *template literals*
+- Syntaxe raccourcie pour les objets
+
+```js
+// ES5
+var prenom = 'Justin';
+var nom = 'Bieber';
+var chanteurPrefere = 'lui-même';
+var person = {nom: nom, prenom: prenom};
+person['disques de ' + chanteurPrefere] = 42;
+```
+```js
+// ES6
+const prenom = 'Justin';
+const nom = 'Bieber';
+const chanteurPrefere = 'lui-même'
+const person = {nom, prenom, [`disques de ${chanteurPrefere}`]: 42}
+```
+]
+
+---
+count: false
+
+.left-column[
+## ES6
+]
+
+.right-column[
+- ...
+- Destructuration
+
+```js
+// ES5
+var list = [ 1, 2, 3 ];
+var a = list[0], b = list[2];
+var tmp = a; a = b; b = tmp;
+
+var person = getPersonFromDb();
+var prenom = person.prenom;
+var nom = person.nom;
+var age = person.age === undefined ? 42 : person.age
+
+function f(value, opts) {
+  var follow = opts.follow;
+  var force = opts.force;
+}
+```
+```js
+// ES6
+const list = [ 1, 2, 3 ]
+let [ a, , b ] = list
+[ b, a ] = [ a, b ]
+
+const {prenom, nom, age = 42} = getPersonFromDb()
+
+function f(value, { follow, force }) {}
+```
+]
+
+---
+count: false
+
+.left-column[
+## ES6
+]
+
+.right-column[
+- ...
+- Modules
+
+```js
+// ES5
+//  lib/math.js
+LibMath = {};
+LibMath.sum = function (x, y) { return x + y };
+LibMath.pi = 3.141593;
+
+//  someApp.js
+var math = LibMath;
+console.log("2π = " + math.sum(math.pi, math.pi));
+
+//  otherApp.js
+var sum = LibMath.sum, pi = LibMath.pi;
+console.log("2π = " + sum(pi, pi));
+```
+```js
+// ES6
+//  lib/math.js
+export const sum = (x, y) => x + y
+export const pi = 3.141593
+
+//  someApp.js
+import * as math from "lib/math"
+console.log("2π = " + math.sum(math.pi, math.pi))
+
+//  otherApp.js
+import { sum, pi } from "lib/math"
+console.log("2π = " + sum(pi, pi))
+```
+]
+
+---
+count: false
+
+.left-column[
+## ES6
+]
+
+.right-column[
+- ...
+- Classes
+
+.code-multi-columns[
+```js
+// ES5
+var Shape = function (id, x, y) {
+    this.id = id;
+    this.move(x, y);
+};
+Shape.prototype.move = function (x, y) {
+    this.x = x;
+    this.y = y;
+};
+
+
+var Rectangle = function (id, x, y, width, height) {
+    Shape.call(this, id, x, y);
+    this.width  = width;
+    this.height = height;
+};
+Rectangle.prototype = Object.create(Shape.prototype);
+Rectangle.prototype.constructor = Rectangle;
+var Circle = function (id, x, y, radius) {
+    Shape.call(this, id, x, y);
+    this.radius = radius;
+};
+Circle.prototype = Object.create(Shape.prototype);
+Circle.prototype.constructor = Circle;
+```
+```js
+// ES6
+class Shape {
+  constructor (id, x, y) {
+    this.id = id
+    this.move(x, y)
+  }
+  move (x, y) {
+    this.x = x
+    this.y = y
+  }
+}
+class Rectangle extends Shape {
+  constructor (id, x, y, width, height) {
+    super(id, x, y)
+    this.width  = width
+    this.height = height
+  }
+}
+class Circle extends Shape {
+  constructor (id, x, y, radius) {
+    super(id, x, y)
+    this.radius = radius
+  }
+}
+```
+]
+]
+
+---
+count: false
+
+.left-column[
+## ES6
+]
+
+.right-column[
+- ...
+- Promesses
+
+.code-multi-columns[
+```js
+// ES5
+// Si fetch utilisait des callbacks
+fetch('users/nymous', (err, user) => {
+  if (err)
+    return console.error(err);
+  fetch('posts/' + user.userId, (err, posts) => {
+    if (err)
+      return console.error(err);
+    console.log(posts)
+  };
+})
+
+getUserFromDb('nymous', (err, user) => {
+  getGithubOfClass('ebm', (err, github) => {
+    console.log(user, github)
+  }
+})
+```
+```js
+// ES6
+
+fetch('users/nymous')
+  .then(user => fetch(`posts/${user.userId}`))
+  .then(posts => console.log(posts))
+  .catch(err => console.error(err))
+
+
+
+
+Promise.all([
+  getUserFromDb('nymous'),
+  getGithubOfClass('ebm')
+])
+  .then(([user, github]) => {
+    console.log(user, github)
+})
+```
+]
+]
+
+---
+count: false
+
+.left-column[
+## ES6
+]
+
+.right-column[
+Mais encore :
+- Générateurs
+
+- Symboles
+
+- Map, Set, WeakMap et WeakSet
+
+- Des méthodes bonus sur les Strings et les Arrays
+
+- ...
+]
+
 ---
 
 .left-column[
 ## ES6
 ## ES2016
+]
+
+???
+
+À partir de ES7, on doit utiliser la nomenclature ES + année de sortie
+
+--
+count: false
+
+.right-column[
+- `Array.prototype.includes`
+
+- L'opérateur puissance
+
+```js
+[1, 2, 3].includes(3); // true
+
+2 ** 5 === Math.pow(2, 5); // true
+```
+]
+
+--
+count: false
+
+.right-column[
+Et c'est tout...
 ]
 
 ---

@@ -74,16 +74,41 @@ code {
 .left-column h2:last-of-type, .left-column h3:last-child {
   color: #000;
 }
+
+:root {
+  --right-column-width: 80%;
+}
+
 .right-column {
-  width: 75%;
+  width: var(--right-column-width);
   float: right;
   padding-top: 1em;
 }
 
 .right-column-no-padding {
-  width: 75%;
+  width: var(--right-column-width);
   float: right;
   padding-top: 0;
+}
+
+/* Code blocks styling */
+.code-multi-columns {
+  display: flex;
+}
+
+.code-multi-columns pre {
+  --margin: 0.5em;
+  margin-left: var(--margin);
+  margin-right: var(--margin);
+  flex: 1;
+}
+
+.code-multi-columns pre:first-child {
+  margin-left: 0;
+}
+
+.code-multi-columns pre:last-child {
+  margin-right: 0;
 }
 
 /* Image specific styling */
