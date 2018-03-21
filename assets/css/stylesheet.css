@@ -165,3 +165,18 @@ img {
   width: 10%;
   float: right;
 }
+
+.express-img img {
+  width: 25%;
+  float: right;
+}
+
+.loopback-img img {
+  width: 10%;
+  float: right;
+}
+
+.loopback-admin-img img {
+  margin-top: 1em;
+  width: 70%;
+}
