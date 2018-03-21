@@ -87,6 +87,10 @@ h3 ~ p {
   margin-top: 8px;
 }
 
+small {
+  font-size: 0.5em;
+}
+
 :root {
   --right-column-width: 80%;
 }
@@ -179,4 +183,14 @@ img {
 .loopback-admin-img img {
   margin-top: 1em;
   width: 70%;
+}
+
+.react-native-img img {
+  width: 25%;
+  float: right;
+}
+
+.ionic-img img {
+  width: 20%;
+  float: right;
 }
