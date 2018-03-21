@@ -194,3 +194,8 @@ img {
   width: 20%;
   float: right;
 }
+
+.electron-img img {
+  width: 25%;
+  float: right;
+}
