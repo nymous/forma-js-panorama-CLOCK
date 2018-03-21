@@ -29,49 +29,6 @@ layout: false
 ]
 
 .right-column[
-- Rappel de l'historique du JS
-- Fonctionnement des nouvelles versions du langage (proposals, stages...)
-- Fonctionnalités swaggy
-  - ES6 (2015)
-  - ES2016
-  - ES2017
-  - Encore en proposals
-- Tooling
-  - Babel
-  - Webpack
-    - Parcel ?
-  - ESLint
-    - Standard ?
-  - Prettier
-- Frameworks/libs et concepts
-  - Frontend
-    - React
-      - Redux
-      - Mobx
-    - Vue
-      - Vuex
-    - Angular
-  - Backend
-    - Express
-    - Loopback
-  - Desktop
-    - Electron
-      - https://github.com/zeit/hyper
-      - Limites (overhead de l'install de Chrome + node, failles de sécu sur les electron pas à jour)
-      - Expérimentations (utiliser le navigateur du système)
-  - Les autres trucs chelous
-    - https://github.com/webtorrent/webtorrent
-    - WebAssembly
-
-]
-
----
-
-.left-column[
-## Plan
-]
-
-.right-column[
 ## 1. Pourquoi ?
 
 ## 2. Comment le JS évolue-t-il ?
@@ -107,6 +64,7 @@ montrer sa richesse et toooooout ce pour quoi le JS est utilisé aujourd'hui.
 count: false
 
 .right-column[
+.brendan-img[![Brendan Eich picture](./assets/img/brendan_eich.jpg)]
 - Javascript créé en 1995
 
 - ECMAScript 3 sort en 1999
@@ -1055,8 +1013,31 @@ Alternative : NW.js (anciennement Node-Webkit)
 Limitations :
   - poids de l'application
   - multiplication des Chromium installés  
-  - performances du JS
   - problèmes de sécurité (Chromium pas à jour)
+  - performances du JS
+]
+
+---
+
+.left-column[
+## Les outils
+## Le frontend
+## Le backend
+## Le mobile
+## Le desktop
+## Le reste
+]
+
+.right-column[
+### Des projets ~~bizarres~~
+- [Cypress](https://www.cypress.io/), un IDE pour faire des tests end-to-end
+- [Hyper](https://hyper.is/) : un terminal, fait avec Electron
+- [WebTorrent](https://webtorrent.io/) (compatible avec les vrais torrents via un serveur "bridge")
+- [NodeOS](http://node-os.com/), un OS en JavaScript
+
+### Plus loin que le JS
+- [TypeScript](http://www.typescriptlang.org/), [Flow](https://flow.org/), [Dart](https://www.dartlang.org/), [Elm](http://elm-lang.org/), [ReasonML](https://reasonml.github.io/), [Kotlin](https://kotlinlang.org/)... qui compilent vers du JS
+- [WebAssembly](http://webassembly.org/) : un format d'exécutable binaire implémenté dans les navigateurs (à partir de C, Rust...)
 ]
 
 ---
@@ -1103,6 +1084,7 @@ template: inverse
 - Une [cheatsheet](https://github.com/mbeaudru/modern-js-cheatsheet) de la nouvelle syntaxe ES2015+
 - Un guide de la [programmation fonctionnelle](https://github.com/MostlyAdequate/mostly-adequate-guide) en JS
 - [WebAssembly](http://webassembly.org/), un format d'exécutable binaire implémenté dans les navigateurs
+- Le protocole [WebTorrent](https://github.com/webtorrent/webtorrent)
 - Article de Bastien Huber sur [Loopback](https://huberisation.eu/articles/brainstorming-app-part-1-loopback)
 ]
 
@@ -1112,7 +1094,7 @@ template: inverse
       var slideshow = remark.create({
         ratio: '16:9',
         highlightLines: true,
-        highlightStyle: 'solarized-dark',
+        highlightStyle: 'solarized-light',
       });
     </script>
   </body>

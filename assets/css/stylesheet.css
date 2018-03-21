@@ -140,6 +140,11 @@ img {
   width: 25%;
 }
 
+.brendan-img img {
+  width: 25%;
+  float: right;
+}
+
 .babel-img img {
   width: 25%;
   float: right;
