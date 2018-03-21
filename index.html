@@ -128,14 +128,15 @@ count: false
 ]
 
 ---
+template: inverse
+
+# Comment le JS évolue-t-il ?
+
+---
 
 .left-column[
-## µ-historique (rappel)
 ## Évolution du langage
 ]
-
---
-count: false
 
 .right-column[
 ## 5 étapes (ou *stages*)
@@ -190,7 +191,6 @@ count: false
 ---
 
 .left-column[
-## µ-historique (rappel)
 ## Évolution du langage
 ]
 
@@ -866,6 +866,108 @@ let result = 'hello'
 result === 'Hello, hello!'
 ```
 ]
+
+???
+
+Stage 3 = quasi sûr d'arriver, sauf qu'une fois une feature en stage 3 était prête à être acceptée, jusqu'à ce qu'un dev arrive avec son cas d'usage qui ne marchait pas, le cas a été retenu et toute la spec est repartie en stage 0 pour réflexion complémentaire
+
+---
+template: inverse
+
+# L'écosystème
+
+---
+
+.left-column[
+## Les outils
+]
+
+.right-column[
+## La sainte trinité
+
+### Babel
+.babel-img[![Babel logo](./assets/img/babel.png)]
+Transpilation (JS-to-JS), pour utiliser les nouvelles fonctionnalités même dans les vieux navigateurs
+
+Alternative : bublé
+]
+
+--
+count: false
+
+.right-column-no-padding[
+### Webpack
+.webpack-logo[![Webpack logo](./assets/img/webpack.png)]
+Gestion de toutes les ressources dans un projet frontend
+
+Alternatives : Rollup, Parcel, Browserify
+]
+
+--
+count: false
+
+.right-column-no-padding[
+### ESLint
+.eslint-img[![ESLint logo](./assets/img/eslint.svg)]
+Analyse statique du code, respect de certaines règles de formatage ou de syntaxe
+
+À combiner avec : Prettier
+]
+
+
+---
+
+.left-column[
+## Les outils
+## Le frontend
+]
+
+.right-column[
+### React
+.react-img[![React logo](./assets/img/react.png)]
+Bibliothèque d'affichage, développée par Facebook  
+Syntaxe JSX
+
+Fait *juste* l'affichage, il faut assembler des briques tierces  
+Écosystème énorme ! Mais pas de lib de référence (trop de choix ?)  
+Courbe de difficulté moyenne
+]
+
+???
+
+Exemple de briques tierces React : routeur, services HTTP, gestion d'état...
+
+--
+count: false
+
+.right-column-no-padding[
+### Angular
+.angular-img[![Angular logo](./assets/img/angular.png)]
+Framework frontend, développé par Google  
+Syntaxe TypeScript
+
+Fait tout ! (c'est un framework)  
+Propose *la bonne manière* de structurer une application  
+Courbe de difficulté grande (syntaxe TS, surface de l'API)
+]
+
+--
+count: false
+
+.right-column-no-padding[
+### Vue
+.vue-img[![Vue logo](./assets/img/vue.png)]
+Bibliothèque d'affichage, soutenue par Alibaba  
+Templates HTML (mais JSX et Typescript possibles)
+
+Fait à peut près autant que React  
+Écosystème moins développé ; des libs *conseillées* mais on peut dévier de la norme  
+Courbe de difficulté faible
+]
+
+???
+
+Courbe de difficulté de vue : on peut juste charger `<script src="vue.min.js">` sans perdre trop de performances
 
 ---
 template: inverse
