@@ -1022,6 +1022,34 @@ Tous les deux s'appuient sur les SDK natifs
 ]
 
 ---
+
+.left-column[
+## Les outils
+## Le frontend
+## Le backend
+## Le mobile
+## Le desktop
+]
+
+.right-column[
+### Electron
+.electron-img[![Electron logo](./assets/img/electron.svg)]
+Développé par GitHub  
+Permet le développement d'applications de bureau multi-plateformes (Windows, macOS, Linux)  
+Combine NodeJS et Chromium
+
+Utilisé par Slack, Discord, Atom, VS Code...
+
+Alternative : NW.js (anciennement Node-Webkit)
+
+Limitations :
+  - poids de l'application
+  - multiplication des Chromium installés  
+  - performances du JS
+  - problèmes de sécurité (Chromium pas à jour)
+]
+
+---
 template: inverse
 
 # The end
