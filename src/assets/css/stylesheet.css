@@ -75,6 +75,18 @@ code {
   color: #000;
 }
 
+/*****************************
+*     Custom styling
+*****************************/
+
+.remark-slide-content h3 {
+  margin-top: 16px;
+}
+
+h3 ~ p {
+  margin-top: 8px;
+}
+
 :root {
   --right-column-width: 80%;
 }
@@ -89,6 +101,10 @@ code {
   width: var(--right-column-width);
   float: right;
   padding-top: 0;
+}
+
+.right-column p:last-child, .right-column-no-padding p:last-child {
+  margin-bottom: 0;
 }
 
 /* Code blocks styling */
@@ -118,4 +134,34 @@ img {
 
 .javascript-img img {
   width: 25%;
+}
+
+.babel-img img {
+  width: 25%;
+  float: right;
+}
+
+.webpack-logo img {
+  width: 28%;
+  float: right;
+}
+
+.eslint-img img {
+  width: 15%;
+  float: right;
+}
+
+.react-img img {
+  width: 10%;
+  float: right;
+}
+
+.angular-img img {
+  width: 10%;
+  float: right;
+}
+
+.vue-img img {
+  width: 10%;
+  float: right;
 }
