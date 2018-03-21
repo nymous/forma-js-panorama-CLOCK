@@ -56,6 +56,22 @@ layout: false
 ]
 
 ---
+
+.left-column[
+## Plan
+]
+
+.right-column[
+## 1. Pourquoi ?
+
+## 2. Comment le JS évolue-t-il ?
+
+## 3. Les nouveautés
+
+## 4. L'écosystème
+]
+
+---
 template: inverse
 
 # Pourquoi ?
@@ -728,12 +744,117 @@ Et c'est tout...
 ]
 
 ---
+count: false
+
+.left-column[
+## ES6
+## ES2016
+## ES2017
+]
+
+.right-column[
+- String padding
+
+```js
+'Nymous'.padStart(10) === '    Nymous';
+'Nymous'.padStart(10, x) === 'xxxxNymous';
+'Nymous'.padEnd(10) === 'Nymous    ';
+```
+
+*cf l'affaire left-pad*
+]
+
+---
+count: false
+
+.left-column[
+## ES6
+## ES2016
+## ES2017
+]
+
+.right-column[
+- String padding
+- `Object.values` et `Object.entries`
+
+```js
+const obj = {key: 'value', name: 'Thomas', age: 22}
+Object.values(obj) === ['value', 'Thomas', 22]
+
+Object.entries(obj) === [['key', 'value'], ['name', 'Thomas'], ['age', 22]]
+```
+]
+
+---
+count: false
+
+.left-column[
+## ES6
+## ES2016
+## ES2017
+]
+
+.right-column[
+- String padding
+- `Object.values` et `Object.entries`
+- async/await
+
+.code-2-columns[
+```js
+fetch('users/nymous')
+  .then(user => fetch(`posts/${user.userId}`))
+  .then(posts => console.log(posts))
+  .catch(err => console.error(err))
+```
+```js
+try {
+  const user = await fetch('users/nymous')
+  const posts = await fetch(`posts/${user.userId})
+  console.log(posts)
+} catch(err) {
+  console.error(err)
+}
+```
+]
+]
+
+---
 
 .left-column[
 ## ES6
 ## ES2016
 ## ES2017
 ## ES.Next
+]
+
+.right-column[
+Stage 3 :
+- `import()` asynchrone
+- Méthodes privées dans les classes
+
+Stage 2 :
+- Méthodes statiques
+- Décorateurs
+
+Stage 1 :
+- Optional chaining
+
+```js
+const town = user && user.address && user.address.town
+const town = user?.address?.town
+```
+- Pipeline operator
+
+```js
+let result = exclaim(capitalize(doubleSay('hello')))
+result === 'Hello, hello!'
+
+let result = 'hello'
+  |> doubleSay
+  |> capitalize
+  |> exclaim
+result === 'Hello, hello!'
+```
 ]
 
 ---
@@ -746,27 +867,27 @@ template: inverse
 ---
 
 .left-column[
-## Sources et liens
+## Sources
 ]
 
 .right-column[
-# Sources
-
+- Wikipédia : [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript), [JavaScript](https://en.wikipedia.org/wiki/JavaScript), [WebAssembly](https://en.wikipedia.org/wiki/WebAssembly)
 - [Présentation du JS en 2016](https://tdd.github.io/js-nocturnes-federez) par Christophe Porteneuve, et la [partie 2](https://github.com/tdd/js-nocturnes-federez/blob/gh-pages/episode-2-ecosysteme.pdf)
 - [Process d'acceptation](https://tc39.github.io/process-document/) des modifications d'ECMAScript
 - [Les nouveautés de ES2015+](http://es6-features.org/), avec des exemples de code
+- Des [articles](https://github.com/bevacqua/es6) sur lesdites nouveautés
 ]
 
 ---
 
 .left-column[
-## Sources et liens
+## Sources
+## Pour aller plus loin
 ]
 
 .right-column[
-# Liens
-
 - Un gros bouquin pour réapprendre le Javascript, [You don't know JS](https://github.com/getify/You-Dont-Know-JS)
+- [Promisees](https://bevacqua.github.io/promisees/), un joli site pour comprendre dans quel sens fonctionnent les promesses
 - [TypeScript](https://github.com/Microsoft/TypeScript), le superset de JS développé par Microsoft, avec comme ajout principal un typage statique (et d'autres bonus)
 - [Flow](https://flow.org/), une alternative au typage de TypeScript, développé par Facebook
 - [Yarn](https://github.com/yarnpkg/yarn), un gestionnaire de package alternatif à npm et développé par Facebook
